@@ -2,10 +2,10 @@
 
 - name: Install on RHEL
   ansible.builtin.include_tasks: rhel.yml
-  when: ansible_distribution == 'RedHat'
+  when: ansible_facts.distribution == 'RedHat'
 
 - name: Install on RHEL forks
   ansible.builtin.include_tasks: forks.yml
   when:
-    - ansible_distribution != 'Fedora'
-    - ansible_distribution != 'RedHat'
+    - ansible_facts.distribution != 'Fedora'
+    - ansible_facts.distribution != 'RedHat'
